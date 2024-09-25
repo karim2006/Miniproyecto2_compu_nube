@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubermatic-dl-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kubermatic-dl
+  template:
+    metadata:
+      labels:
+        app: kubermatic-dl
+    spec:
+      containers:
+      - name: kubermatic-dl
+        image: <tu-usuario>/kubermatic-dl:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
