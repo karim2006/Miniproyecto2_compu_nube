@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubermatic-dl-deployment
+spec:
+  type: LoadBalancer
+  selector:
+    app: kubermatic-dl
+  ports:
+  - protocol: TCP
+    port: 80        # Puerto expuesto externamente
+    targetPort: 8080  # Puerto en el que la aplicación está escuchando en los pods
